@@ -3,6 +3,7 @@ drop table if exists utilizacion;
 drop table if exists interfaces;
 drop table if exists category;
 
+PRAGMA foreign_keys = ON;
 
 create table devices (
   device text not null primary key,
@@ -24,10 +25,10 @@ create table interfaces (
   FoC integer,
   current integer,
   lpu integer,
-  capexLPU integer 
+  capexLPU integer
 );
 
 create table category (
-  device text not null,
+  category text not null,
   capexCat money
 );
