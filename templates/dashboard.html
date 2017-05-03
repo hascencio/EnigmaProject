@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="content">
+  <h1>IP and Photonic LPU Inventory</h1>
+  <br>
+
+<div class="tables">
+<table style="display: table;" id="list">
+  <tr>
+    <th>Summary</th>
+    <th>FoC</th>
+    <th>Current</th>
+    <th>LPU</th>
+    <th>CAPEX</th>
+  </tr>
+  {% for entry in entries %}
+  <tr>
+    <td>{{ entry.device }}</td>
+    <td>{{ entry.category }}</td>
+    <td>{{ entry.foc }}</td>
+    <td>{{ entry.lpu }}</td>
+    <td>{{ entry.capexLPU }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!doctype html>
+
+<title>LPU IP+Photonics</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class="header">
+<ul>
+  <li><a href="{{url_for('index')}}"><img height="75" width="75"  src="{{ url_for('static',filename='cisco-logo.gif')}}"></a></li>
+  <li><a href ="{{url_for('dashboard')}}"> IP Dashboard</a></li>
+  <li><a href =""> Equipments Report</a></li>
+  <li><a href ="{{url_for('adddevice')}}"> Add Equipment</a></li>
+</ul>
+<h1></h1>
+</div>
+<br>
+
+{% for message in get_flashed_messages() %}
+  <div class=flash>{{ message }}</div>
+{% endfor %}
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+{% block body %}
+{% endblock %}

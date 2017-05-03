@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="content">
+   <h1>Add New Device</h1>
+  <br>
+  <form action="{{url_for('adddevice')}}" method="post">
+  <table>
+    <tr>
+      <td>Device:</td>
+      <td><input type='text' name='device'></td>
+    </tr>
+
+<tr>
+  <td>IP Address:</td>
+      <td><input type='text' name='ipAddress'></td>
+    </tr>
+
+<tr>
+  <td>Site: </td>
+      <td><input type='text' name='site'></td>
+    </tr>
+
+<tr>
+  <td></td>
+  <td><input type='submit' value=Add></td>
+  </tr>
+</form>
+</div>
+{% endblock %}
