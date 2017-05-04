@@ -56,5 +56,7 @@ try:
     print("Cantidad 10G SE " + str(C_10GSE))
     print("Cantidad 1G SE " + str(C_1GSE))
     print("Cantidad 1GTR " + str(C_1GTR))
+    lista_out = [C_10GTR,C_10GSE,C_1GSE,C_1GTR]
+    print (lista_out)
 except:
-    print('\n\n ERROR: Could not retrieve the information')
+    print('\n\n ERROR: Could not retrieve, the information')

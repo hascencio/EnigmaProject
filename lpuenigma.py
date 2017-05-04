@@ -1,5 +1,6 @@
 import os
 import sqlite3
+from collectionfunction import collectionfunction
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
@@ -51,7 +52,7 @@ def initdb_command():
 
 @app.route('/')
 def index():
-    print 'Hello World'
+    print ('Hello World')
     return render_template ('index.html')
     # try:
     #     db = get_db()
@@ -89,17 +90,23 @@ def dashboard():
 def adddevice():
     if request.method =='GET':
         return render_template('adddevice.html')
-        print 'GET'
+        #print 'GET'
     elif request.method == 'POST':
         try:
             db = get_db()
             vals = [request.form['device'], request.form['ipAddress'],request.form['site']]
+            ipAddress = str(vals[1])
+            print (ipAddress)
             db.execute('insert into devices (device, ipAddress, site) values (?,?,?)',vals)
             db.commit()
+            lista_out_int = []
+            lista_out = []
+            lista_out_int = collectionfunction(ipAddress)
+            print (lista_out_int)
         except sqlite3.Error as e:
             error = "Could not create the service: "+e.args[0]
             return render_template('adddevice.html', error = error)
-        print 'POST'
+        #print 'POST'
 
     return render_template('adddevice.html')
 
